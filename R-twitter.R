@@ -24,11 +24,7 @@ dice(10000)
 
 
 ###########################################################################
-##since the data is pretty large, I can't plot it to see if there are outliers.The way I delete bad point is:
-#1. delete rows that includes NA and 0 for two tables 2.the geographic range of NYC is (71°-79°W,40°-45°N),since they're NYC texicabs,
-#the pickup location in NYC-yes. 3.I need to check if both pickup and dropoff date in (2013-3-1,2013-3-31)-yes.
-fare<- read.csv("file:///Users/zhangyuting/Downloads/trip_fare_3.csv")
-data<- read.csv("file:///Users/zhangyuting/Downloads/trip_data_3.csv")
+
 str(data) #15749228 observers
 str(fare) #15749228 observers
 nrow(data[complete.cases(data),]) ## return 15748935
@@ -76,13 +72,7 @@ median<-median(driver)###take too long time that I have to stop
 
 
 #####################################################################################################
-file_list<-list.files("Downloads/twitter/")
-##get all tables related to an ego
-circle<-read.table(paste("Downloads/twitter/",file_list[4861],sep=""),sep="",fill=T,blank.lines.skip=F)
-edge<-read.table(paste("Downloads/twitter/",file_list[4862],sep=""),sep=" ",fill=T)
-egofeat<-read.table(paste("Downloads/twitter/",file_list[4863],sep=""),sep=" ",header=T,fill=T)
-feat<-read.table(paste("Downloads/twitter/",file_list[4864],sep=""),sep="",header=F,fill=T)
-featname<-read.table(paste("Downloads/twitter/",file_list[4865],sep=""),sep=" ",header=T,fill=T)
+
 ##rewrite circle table
 line<-rep(0,nrow(circle))
 for(i in 1:nrow(circle)){
